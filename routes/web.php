@@ -20,6 +20,10 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('/home', function () {
+    return view('welcome');
+})->middleware(['auth', 'verified'])->name('home');
+
 /* */
 
 /* Route::get('/', function () {
