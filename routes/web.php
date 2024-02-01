@@ -16,19 +16,16 @@ use Illuminate\Support\Facades\Route;
 
 /* User-defined web routes */
 
-Route::get('/landing', function () {
-    return view('landing');
-});
-
-Route::get('/', function () {
-    return view('landing');
-})->middleware(['auth', 'verified'])->name('landing');
-
-/* */
-
 Route::get('/', function () {
     return view('welcome');
 });
+
+/* */
+
+/* Route::get('/', function () {
+    return view('frontend.index');
+}); */
+
 
 Route::get('/dashboard', function () {
     return view('dashboard');
