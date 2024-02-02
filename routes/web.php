@@ -16,6 +16,15 @@ use Illuminate\Support\Facades\Route;
 
 /* User-defined web routes */
 
+Route::get('post', [App\Http\Controllers\PostsController::class, 'index']);
+Route::get('post/create', [App\Http\Controllers\PostsController::class, 'create']);
+Route::post('post/create', [App\Http\Controllers\PostsController::class, 'store']);
+Route::get('post/{id}/edit', [App\Http\Controllers\PostsController::class, 'edit']);
+Route::put('post/{id}/edit', [App\Http\Controllers\PostsController::class, 'update']);
+Route::get('post/{id}/delete', [App\Http\Controllers\PostsController::class, 'destroy']);
+
+/* */
+
 Route::get('/', function () {
     return view('welcome');
 });
@@ -25,11 +34,6 @@ Route::get('/home', function () {
 })->middleware(['auth', 'verified'])->name('home');
 
 /* */
-
-/* Route::get('/', function () {
-    return view('frontend.index');
-}); */
-
 
 Route::get('/dashboard', function () {
     return view('dashboard');

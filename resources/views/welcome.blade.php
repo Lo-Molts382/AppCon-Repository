@@ -22,13 +22,6 @@
 
                     <x-look-layout>
                         <!-- NAVBAR HERE -->
-
-                    <x-slot:scripts>
-                        <script>
-                            console.log('');
-                        </script> 
-                    </x-slot> 
-
                     </x-look-layout>
                 </div>
                 
