@@ -18,6 +18,10 @@
                     <x-nav-link :href="route('home')" :active="request()->routeIs('/')">
                         {{ __('Home') }}
                     </x-nav-link>
+                    <x-nav-link href="{{ url('post/create')  }}">
+                        {{ __('Create Post') }}
+                    </x-nav-link>
+                    
                 </div>
             </div>
 

@@ -23,6 +23,8 @@
                                     <th>Last Name</th>
                                     <th>Title</th>
                                     <th>Content</th>
+                                    <th>Created At</th>
+                                    <th>Updated At</th>
                                     <th>Action</th>
                                 </tr>
                             </thead>
@@ -33,6 +35,8 @@
                                         <td>{{Auth::user()->username}}</td>
                                         <td>{{Auth::user()->first_name}}</td>
                                         <td>{{Auth::user()->last_name}}</td>
+                                        <td>{{$item->created_at}}</td>
+                                        <td>{{$item->updated_at}}</td>
                                         <td>{{$item->title}}</td>
                                         <td>{{$item->content}}</td>
                                         <td>

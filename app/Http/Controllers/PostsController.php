@@ -21,17 +21,11 @@ class PostsController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'username' => 'required|string|max:255',
-            'first_name' => 'required|string|max:255',
-            'last_name' => 'required|string|max:255',
             'title' => 'required|string|max:255',
             'content' => 'required|string|max:255',
         ]);
 
         Post::create([
-            'username' => $request->username,
-            'first_name' => $request->first_name,
-            'last_name' => $request->last_name,
             'title' => $request->title,
             'content' => $request->content, 
 
@@ -49,17 +43,11 @@ class PostsController extends Controller
     public function update(Request $request, int $id)
     {
         $request->validate([
-            'username' => 'required|string|max:255',
-            'first_name' => 'required|string|max:255',
-            'last_name' => 'required|string|max:255',
             'title' => 'required|string|max:255',
             'content' => 'required|string|max:255',
         ]);
 
         Post::findOrFail($id)->update([
-            'username' => $request->username,
-            'first_name' => $request->first_name,
-            'last_name' => $request->last_name,
             'title' => $request->title,
             'content' => $request->content, 
         ]);
