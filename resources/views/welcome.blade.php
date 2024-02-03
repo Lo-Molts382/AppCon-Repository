@@ -54,7 +54,7 @@
                                                 <tbody>
                                                     @foreach ($posts as $item)
                                                         <tr>
-                                                            <td>{{Auth::user()->id}}</td>
+                                                            <!--<td>{{Auth::user()->id}}</td>-->
                                                             <td>{{Auth::user()->username}}</td>
                                                             <td>{{Auth::user()->first_name}}</td>
                                                             <td>{{Auth::user()->last_name}}</td>
@@ -69,7 +69,6 @@
                                                                 <a href="{{ url('post/'.$item->id.'/delete') }}" 
                                                                     class = "btn btn-danger mx-1"
                                                                     onclick="return confirm('Delete this post?')">Delete</a>
-                                                                <!-- ADD CONFIRMATORY MESSAGE IF YOU HAVE EXTRA TIME -->
                                                             </td>
                                                         </tr>
                                                     @endforeach
