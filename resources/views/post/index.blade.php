@@ -35,10 +35,10 @@
                                         <td>{{Auth::user()->username}}</td>
                                         <td>{{Auth::user()->first_name}}</td>
                                         <td>{{Auth::user()->last_name}}</td>
-                                        <td>{{$item->created_at}}</td>
-                                        <td>{{$item->updated_at}}</td>
                                         <td>{{$item->title}}</td>
                                         <td>{{$item->content}}</td>
+                                        <td>{{$item->created_at}}</td>
+                                        <td>{{$item->updated_at}}</td>
                                         <td>
                                             <a href="{{ url('post/'.$item->id.'/edit') }}" 
                                                 class = "btn btn-success mx-1"

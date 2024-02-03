@@ -16,7 +16,7 @@
                     <div class="card">
                         <div class="card-header">
                             <h2> Create Post
-                                <a href = "{{ url('post') }}" class="btn btn-primary float-end"> Back </a>
+                                <a href = "{{ url('dashboard') }}" class="btn btn-primary float-end"> Back </a>
                             </h2>
                         </div>
                         <div class="card-body">

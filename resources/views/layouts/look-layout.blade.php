@@ -14,10 +14,7 @@
 
 </head>
 
-<body>
-    
-    <x-partials.navbar />
-    
+<body>    
     <div>
         {{ $slot }}
     </div>

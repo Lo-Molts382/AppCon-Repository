@@ -15,10 +15,10 @@
                     <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
                         {{ __('Dashboard') }}
                     </x-nav-link>
-                    <x-nav-link :href="route('home')" :active="request()->routeIs('/')">
+                    <x-nav-link href="{{ url('post') }}" >
                         {{ __('Home') }}
                     </x-nav-link>
-                    <x-nav-link href="{{ url('post/create')  }}">
+                    <x-nav-link href="{{ url('post/create') }}">
                         {{ __('Create Post') }}
                     </x-nav-link>
                     

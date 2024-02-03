@@ -10,7 +10,13 @@ class PostsController extends Controller
     public function index()
     {
         $posts = Post::get();
-        return view('post.index', compact('posts'));
+        return view('welcome', compact('posts'));
+    }
+
+    public function dash()
+    {
+        $posts = Post::get();
+        return view('dashboard', compact('posts'));
     }
 
     public function create()
