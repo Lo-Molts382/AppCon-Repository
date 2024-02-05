@@ -18,6 +18,7 @@
     <body class="antialiased">
         <div class="sm:justify-center sm:items-center min-h-screen bg-dots-darker bg-center bg-gray-100 dark:bg-dots-lighter dark:bg-gray-900 selection:bg-red-500 selection:text-white">
             @if (Route::has('login'))
+            
                 <div class="text-left z-10">
                     <x-partials.navbar />
 
@@ -53,24 +54,26 @@
                                                 </thead>
                                                 <tbody>
                                                     @foreach ($posts as $item)
-                                                        <tr>
-                                                            <!--<td>{{Auth::user()->id}}</td>-->
-                                                            <td>{{Auth::user()->username}}</td>
-                                                            <td>{{Auth::user()->first_name}}</td>
-                                                            <td>{{Auth::user()->last_name}}</td>
-                                                            <td>{{$item->created_at}}</td>
-                                                            <td>{{$item->updated_at}}</td>
-                                                            <td>{{$item->title}}</td>
-                                                            <td>{{$item->content}}</td>
-                                                            <td>
-                                                                <a href="{{ url('post/'.$item->id.'/edit') }}" 
-                                                                    class = "btn btn-success mx-1"
-                                                                    onclick="return confirm('Edit this post?')">Edit</a>
-                                                                <a href="{{ url('post/'.$item->id.'/delete') }}" 
-                                                                    class = "btn btn-danger mx-1"
-                                                                    onclick="return confirm('Delete this post?')">Delete</a>
-                                                            </td>
-                                                        </tr>
+                                                        @if($item->user_id == Auth::user()->id)
+                                                            <tr>
+                                                                <td>{{Auth::user()->id}}</td>
+                                                                <td>{{Auth::user()->username}}</td>
+                                                                <td>{{Auth::user()->first_name}}</td>
+                                                                <td>{{Auth::user()->last_name}}</td>
+                                                                <td>{{$item->created_at}}</td>
+                                                                <td>{{$item->updated_at}}</td>
+                                                                <td>{{$item->title}}</td>
+                                                                <td>{{$item->content}}</td>
+                                                                <td>
+                                                                    <a href="{{ url('post/'.$item->id.'/edit') }}" 
+                                                                        class = "btn btn-success mx-1"
+                                                                        onclick="return confirm('Edit this post?')">Edit</a>
+                                                                    <a href="{{ url('post/'.$item->id.'/delete') }}" 
+                                                                        class = "btn btn-danger mx-1"
+                                                                        onclick="return confirm('Delete this post?')">Delete</a>
+                                                                </td>
+                                                            </tr>
+                                                        @endif
                                                     @endforeach
                                                 </tbody>
                                             </table>
