@@ -7,8 +7,9 @@
         <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
             <div class="navbar-nav">
                 @auth
+                    <p class="font-semibold text-black-600 hover:text-black-900 dark:text-black-600 dark:hover:text-black focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500" style = "margin-bottom: -10px; margin-right:35px;"> Hello, {{ Auth::user()->username }}!</p>
                     <a href="{{ url('/dashboard') }}" class="font-semibold text-gray-600 hover:text-gray-900 dark:text-black-600 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500" style = "margin-right:35px;">Return to Dashboard</a>
-                    <a href="{{ url('/logout') }}" class="font-semibold text-gray-600 hover:text-gray-900 dark:text-black-600 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Log Out</a>
+                    <a href="{{ url('/logout') }}" class="font-semibold text-gray-600 text-decoration-line: none hover:text-gray-900 dark:text-black-600 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Log Out</a>
                 @else
                     <a href="{{ route('login') }}" class="font-semibold text-gray-600 hover:text-gray-900 dark:text-black-600 dark:hover:text-black focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500" style = "margin-right:15px;">Log into your Account</a>
 

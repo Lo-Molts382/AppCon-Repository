@@ -4,7 +4,7 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>Laravel</title>
+        <title>Landing Page</title>
 
         <!-- Fonts -->
         <link rel="preconnect" href="https://fonts.bunny.net">
@@ -52,28 +52,26 @@
                                                         <th>Action</th>
                                                     </tr>
                                                 </thead>
-                                                <tbody>
-                                                    @foreach ($posts as $item)
-                                                        @if($item->user_id == Auth::user()->id)
-                                                            <tr>
-                                                                <td>{{Auth::user()->id}}</td>
-                                                                <td>{{Auth::user()->username}}</td>
-                                                                <td>{{Auth::user()->first_name}}</td>
-                                                                <td>{{Auth::user()->last_name}}</td>
-                                                                <td>{{$item->created_at}}</td>
-                                                                <td>{{$item->updated_at}}</td>
-                                                                <td>{{$item->title}}</td>
-                                                                <td>{{$item->content}}</td>
-                                                                <td>
-                                                                    <a href="{{ url('post/'.$item->id.'/edit') }}" 
-                                                                        class = "btn btn-success mx-1"
-                                                                        onclick="return confirm('Edit this post?')">Edit</a>
-                                                                    <a href="{{ url('post/'.$item->id.'/delete') }}" 
-                                                                        class = "btn btn-danger mx-1"
-                                                                        onclick="return confirm('Delete this post?')">Delete</a>
-                                                                </td>
-                                                            </tr>
-                                                        @endif
+                                                <tbody>                                                             @foreach ($posts as $item)
+                                                                <tr>
+                                                                    <td>{{$item->user_id}}</td>
+                                                                    <td>{{$item->username}}</td>
+                                                                    <td>{{$item->first_name}}</td>
+                                                                    <td>{{$item->last_name}}</td>
+
+                                                                    <td>{{$item->created_at}}</td>
+                                                                    <td>{{$item->updated_at}}</td>
+                                                                    <td>{{$item->title}}</td>
+                                                                    <td>{{$item->content}}</td>
+                                                                    <td>
+                                                                        <a href="{{ url('post/'.$item->id.'/edit') }}" 
+                                                                            class = "btn btn-success mx-1"
+                                                                            onclick="return confirm('Edit this post?')">Edit</a>
+                                                                        <a href="{{ url('post/'.$item->id.'/delete') }}" 
+                                                                            class = "btn btn-danger mx-1"
+                                                                            onclick="return confirm('Delete this post?')">Delete</a>
+                                                                    </td>
+                                                                </tr>
                                                     @endforeach
                                                 </tbody>
                                             </table>

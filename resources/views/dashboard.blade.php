@@ -15,6 +15,10 @@
                                 <div class="card">
                                     
                                     <div class="card-body">
+                                        <div class="ml-8 mb-5 mr-8 max-w-full p-6 bg-white rounded-lg shadow dark:bg-slate-700 dark:border-gray-700">
+                                            <p class="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight"> Your posts: </p>
+                                        </div>
+
                                         <table class ="table table-bordered table-striped">
                                             <tbody>
                                                 @foreach ($posts as $item)
