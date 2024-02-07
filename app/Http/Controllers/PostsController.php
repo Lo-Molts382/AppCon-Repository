@@ -34,7 +34,7 @@ class PostsController extends Controller
         Post::create([
             'user_id' => auth()->user()->id,
             'title' => $request->title,
-            'content' => $request->content, 
+            'content' => $request->content,    
         ]);
     
         return redirect('post/create')->with('status', 'Post Created!');
