@@ -93,3 +93,11 @@ Last Updated: 2/6/2024
 >>> Made minor UI changes.
 
 {{ Committed version 7 into AppCon-Repository. }}
+
+>>> Made minor UI changes, specifically to navbar responsiveness.
+ 
+{{ Committed version 8 into AppCon-Repository. }}
+
+>>> Fixed display bug on Username/First name/Last name; edited welcome.blade.php to make this happen.
+>>> Changed Edit/Delete button behavior when authenticated/not authenticated; edited forementioned file.
+>>> Changed Edit/Delete button behavior to only be enabled when proper user-post relationship is observed.

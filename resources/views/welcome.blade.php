@@ -1,3 +1,9 @@
+<?php
+
+use App\Models\User;
+
+?>
+
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
     <head>
@@ -33,7 +39,7 @@
                                 <div class="col-md-12">
                                     <div class="card">
                                         <div class="card-header">
-                                            <h2> Posts 
+                                            <h2> All Posts 
                                                 <a href = "{{ url('post/create') }}" class="btn btn-primary float-end"> Add Post </a>
                                             </h2>
                                         </div>
@@ -49,28 +55,39 @@
                                                         <th>Content</th>
                                                         <th>Created At</th>
                                                         <th>Updated At</th>
-                                                        <th>Action</th>
+                                                        @auth
+                                                            <th>Action</th>
+                                                        @endauth
                                                     </tr>
                                                 </thead>
-                                                <tbody>                                                             @foreach ($posts as $item)
+                                                <tbody>
+                                                    @foreach ($posts as $item)
                                                                 <tr>
                                                                     <td>{{$item->user_id}}</td>
-                                                                    <td>{{$item->username}}</td>
-                                                                    <td>{{$item->first_name}}</td>
-                                                                    <td>{{$item->last_name}}</td>
-
-                                                                    <td>{{$item->created_at}}</td>
-                                                                    <td>{{$item->updated_at}}</td>
+                                                                    <td>{{User::find($item->user_id)->username}}</td>
+                                                                    <td>{{User::find($item->user_id)->first_name}}</td>
+                                                                    <td>{{User::find($item->user_id)->last_name}}</td>
                                                                     <td>{{$item->title}}</td>
                                                                     <td>{{$item->content}}</td>
+                                                                    <td>{{$item->created_at}}</td>
+                                                                    <td>{{$item->updated_at}}</td>
+                                                                    @auth
                                                                     <td>
-                                                                        <a href="{{ url('post/'.$item->id.'/edit') }}" 
-                                                                            class = "btn btn-success mx-1"
-                                                                            onclick="return confirm('Edit this post?')">Edit</a>
-                                                                        <a href="{{ url('post/'.$item->id.'/delete') }}" 
-                                                                            class = "btn btn-danger mx-1"
-                                                                            onclick="return confirm('Delete this post?')">Delete</a>
+                                                                    @if(Auth::user()->id == $item->user_id)
+                                                                            <a href="{{ url('post/'.$item->id.'/edit') }}" 
+                                                                                class = "btn btn-success mx-1"
+                                                                                onclick="return confirm('Edit this post?')">Edit</a>
+                                                                            <a href="{{ url('post/'.$item->id.'/delete') }}" 
+                                                                                class = "btn btn-danger mx-1"
+                                                                                onclick="return confirm('Delete this post?')">Delete</a>
+                                                                    @else
+                                                                            <a class = "btn btn-secondary mx-1" disabled
+                                                                            >Edit</a>
+                                                                            <a class = "btn btn-secondary mx-1" disabled
+                                                                            >Delete</a>
+                                                                    @endif
                                                                     </td>
+                                                                    @endauth
                                                                 </tr>
                                                     @endforeach
                                                 </tbody>
